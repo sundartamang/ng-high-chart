@@ -1,12 +1,14 @@
 export const RAW_BAR_DATA = [
   { color: 'Red 1', votes: 12 },
   { color: 'Blue 2', votes: 19 },
-  { color: 'Yellow 3', votes: 3 },
-  { color: 'Green 4', votes: 5 },
-  { color: 'Purple 5', votes: 2 },
-  { color: 'Orange 6', votes: 3 },
-  { color: 'Pink 7', votes: 8 },
-  { color: 'Teal 8', votes: 14 },
+
+  // { color: 'Yellow 3', votes: 3 },
+  // { color: 'Green 4', votes: 5 },
+
+  // { color: 'Purple 5', votes: 2 },
+  // { color: 'Orange 6', votes: 3 },
+  // { color: 'Pink 7', votes: 8 },
+  // { color: 'Teal 8', votes: 14 },
 
   // { color: 'Cyan 9', votes: 9 },
   // { color: 'Brown 10', votes: 11 },
@@ -29,6 +31,7 @@ export const RAW_BAR_DATA = [
   // { color: 'Orange 26', votes: 11 },
   // { color: 'Pink 27', votes: 7 },
   // { color: 'Teal 28', votes: 10 },
+
   // { color: 'Cyan 29', votes: 9 },
   // { color: 'Brown 30', votes: 5 },
   // { color: 'Red 31', votes: 14 },

@@ -26,12 +26,18 @@ export class HorizontalBarChartComponent {
     const categories = RAW_BAR_DATA.map((item) => item.color);
     const data = RAW_BAR_DATA.map((item) => item.votes);
 
+    const barHeight = 65;
+    const barWidth = 65; // fixed bar width
+    const barGap = 10; // fixed gap between bars
+    const totalBars = categories.length;
+    const totalHeight = totalBars * (barHeight + barGap);
+
     this.chartOptions = {
       chart: {
         type: 'bar', // vertical bar chart
         backgroundColor: '#f5f5f5',
         scrollablePlotArea: {
-          minHeight: categories.length * 50, // 50px per bar
+          minHeight: totalHeight,
           scrollPositionY: 0,
         },
       },
@@ -57,6 +63,7 @@ export class HorizontalBarChartComponent {
       yAxis: {
         min: 0,
         title: { text: 'Votes' },
+        allowDecimals: false,
       },
       legend: {
         enabled: false,
@@ -67,7 +74,7 @@ export class HorizontalBarChartComponent {
           type: 'column',
           data: data,
           colorByPoint: false,
-          pointWidth: 50,
+          pointWidth: barWidth,
         },
       ],
       tooltip: {

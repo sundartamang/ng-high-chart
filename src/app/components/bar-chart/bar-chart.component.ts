@@ -26,13 +26,18 @@ export class BarChartComponent implements OnInit, AfterViewInit {
     const categories = RAW_BAR_DATA.map((item) => item.color);
     const data = RAW_BAR_DATA.map((item) => item.votes);
 
+    const barWidth = 65; // fixed bar width
+    const barGap = 10; // fixed gap between bars
+    const totalBars = categories.length;
+    const totalWidth = totalBars * (barWidth + barGap);
+
     this.chartOptions = {
       chart: {
-        type: 'column', // vertical bar chart
+        type: 'column',
         backgroundColor: '#f5f5f5',
         scrollablePlotArea: {
-          minWidth: categories.length * 50, // 50px per bar
-          scrollPositionX: 0, // start at left
+          minWidth: totalWidth,
+          scrollPositionX: 0,
         },
       },
       title: {
@@ -43,39 +48,29 @@ export class BarChartComponent implements OnInit, AfterViewInit {
         title: { text: 'Colors' },
         labels: {
           rotation: 0,
-          style: {
-            fontSize: '12px',
-            textOverflow: 'ellipsis', // trims the labels
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            width: '50px', // optional: control max label width
-            display: 'block',
-          },
-          useHTML: true, // required for ellipsis to work properly
+          style: { fontSize: '12px' },
         },
       },
       yAxis: {
         min: 0,
         title: { text: 'Votes' },
+        allowDecimals: false,
       },
-      legend: {
-        enabled: false,
-      },
+      legend: { enabled: false },
       series: [
         {
           name: 'Votes',
           type: 'column',
-          data: data,
-          colorByPoint: false,
-          pointWidth: 50,
+          data,
+          pointWidth: barWidth,
+          groupPadding: 0,
+          pointPadding: 0,
         },
       ],
       tooltip: {
         pointFormat: 'Votes: <b>{point.y}</b>',
       },
-      credits: {
-        enabled: false,
-      },
+      credits: { enabled: false },
     };
   }
 }

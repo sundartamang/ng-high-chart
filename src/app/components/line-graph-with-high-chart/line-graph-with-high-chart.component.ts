@@ -36,11 +36,18 @@ export class LineGraphWithHighChartComponent implements OnInit {
     const lineChartData = RAW_BAR_DATA.map((item) => item.votes);
     const updateBarGraphData = this.barChartData.map((item: any) => item.votes);
 
-    console.log('Bar Chart Data:', updateBarGraphData);
+    const barWidth = 120;
+    const barGap = 0;
+    const totalBars = categories.length;
+    const totalWidth = totalBars * (barWidth + barGap);
 
     this.chartOptions = {
       chart: {
         backgroundColor: '#f5f5f5',
+        scrollablePlotArea: {
+          minWidth: totalWidth,
+          scrollPositionX: 0,
+        },
       },
       title: {
         text: 'Color Votes Combination Chart',
@@ -63,6 +70,7 @@ export class LineGraphWithHighChartComponent implements OnInit {
       yAxis: {
         min: 0,
         title: { text: 'Votes' },
+        allowDecimals: false,
       },
       legend: {
         enabled: false,
@@ -74,12 +82,17 @@ export class LineGraphWithHighChartComponent implements OnInit {
           data: updateBarGraphData,
           color: 'rgba(180, 180, 180, 0.099)',
           borderColor: 'rgba(180, 180, 180, 0.099)',
-          pointWidth: 75,
+          pointWidth: barWidth,
+          grouping: false,
+          groupPadding: 0,
+          pointPadding: 0,
+          borderWidth: 0,
           enableMouseTracking: false,
           states: {
             hover: { enabled: false },
             inactive: { enabled: false },
           },
+          zIndex: 1,
         },
         {
           name: 'Votes (Line)',
@@ -88,12 +101,30 @@ export class LineGraphWithHighChartComponent implements OnInit {
           color: '#007bff',
           marker: {
             enabled: true,
-            radius: 4,
+            radius: 5,
+            lineWidth: 2,
+            fillColor: '#007bff',
+            enabledThreshold: 0,
           },
           enableMouseTracking: true,
           states: {
             hover: { enabled: false },
           },
+          dataLabels: {
+            enabled: true,
+            formatter: function (this: Highcharts.PointLabelObject) {
+              return this.y;
+            },
+            align: 'center',
+            verticalAlign: 'bottom',
+            style: {
+              fontSize: '10px',
+              fontWeight: 'bold',
+              color: '#181919ff',
+              textOutline: 'none',
+            },
+          },
+          zIndex: 2,
         },
       ],
       tooltip: {
@@ -117,6 +148,8 @@ export class LineGraphWithHighChartComponent implements OnInit {
       ...item,
       votes: index % 2 === 0 ? 0 : maxValue,
     }));
+
+    // this.barChartData = RAW_BAR_DATA.map(() => maxValue);
   }
 
   private updateBarSeriesData(): void {
