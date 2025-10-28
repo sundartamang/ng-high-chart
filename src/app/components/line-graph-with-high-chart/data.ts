@@ -1,7 +1,8 @@
 export const RAW_BAR_DATA = [
-  { color: 'Red 1', votes: 1 },
-  { color: 'Blue 2', votes: 2 },
-  { color: 'Yellow 3', votes: 3 },
+  { color: 'Red 1', votes: 2 },
+  { color: 'Blue 2', votes: 1 },
+
+  { color: 'Yellow 3', votes: 2 },
 
   { color: 'Green 4', votes: 5 },
   {
