@@ -2,13 +2,13 @@ export const RAW_BAR_DATA = [
   { color: 'Red 1', votes: 2 },
   { color: 'Blue 2', votes: 1 },
 
-  { color: 'Yellow 3', votes: 2 },
+  // { color: 'Yellow 3', votes: 2 },
 
-  { color: 'Green 4', votes: 5 },
-  {
-    color: 'Purple 5 Purple 5Purple 5Purple 5 Purple 5 Purple 5 Purple 5',
-    votes: 2,
-  },
+  // { color: 'Green 4', votes: 5 },
+  // {
+  //   color: 'Purple 5 Purple 5Purple 5Purple 5 Purple 5 Purple 5 Purple 5',
+  //   votes: 2,
+  // },
   // { color: 'Orange 6', votes: 3 },
   // { color: 'Pink 7', votes: 8 },
   // { color: 'Yellow 7 Yellow 7 Yellow 7 Yellow 7 Yellow 7', votes: 14 },
