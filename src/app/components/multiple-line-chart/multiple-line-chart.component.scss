@@ -1,0 +1,8 @@
+::ng-deep {
+  .highcharts-xaxis-labels {
+    text {
+      top: 575px !important;
+      position: relative; // optional, ensure positioning applies correctly
+    }
+  }
+}

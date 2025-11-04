@@ -27,4 +27,11 @@ export const routes: Routes = [
         './components/line-graph-with-high-chart/line-graph-with-high-chart.component'
       ).then((m) => m.LineGraphWithHighChartComponent),
   },
+  {
+    path: 'multiple-line-chart',
+    loadComponent: () =>
+      import(
+        './components/multiple-line-chart/multiple-line-chart.component'
+      ).then((m) => m.MultipleLineChartComponent),
+  },
 ];
